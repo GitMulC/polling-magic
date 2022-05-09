@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'polling_magic.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_polling_magic.settings')
 
 application = get_wsgi_application()
