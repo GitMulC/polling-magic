@@ -25,7 +25,7 @@ class Poll(models.Model):
         return self.dislikes.count()
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
