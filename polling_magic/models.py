@@ -11,7 +11,7 @@ class Poll(models.Model):
     lore = models.TextField(null=False, blank=False)
     release_date = models.DateField(null=False, blank=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes = models.ManyToManyField(User, related_name=='set_likes', blank=True)
+    likes = models.ManyToManyField(User, related_name='set_likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='set_dislikes', blank=True)
     slug = models.SlugField(max_length=200, null=False, blank=False)
 
