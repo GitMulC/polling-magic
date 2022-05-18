@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for poll in poll_list %}
+
+                {% if forloop.counter|divisilbe:3 %}
+            </div>
+                <div class="row">
+                {% endif %}
+                {% endfor %}
+                </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
