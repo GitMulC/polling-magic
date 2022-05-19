@@ -8,7 +8,28 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for poll in poll_list %}
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="" class="card-img-left">
+                                    {% <img src="{{ post.featured_image.url }}" alt="" class="card-img-left"> %}
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">Poll created by: {{ poll.author }}</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="poll-link">
+                                    <h2 class="card-title">{{ post.title }}</h2>
+                                </a>
+                                <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>{{ post.number_of_likes }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
 
+                        </div>
+                    </div>
                 {% if forloop.counter|divisilbe:3 %}
             </div>
                 <div class="row">
