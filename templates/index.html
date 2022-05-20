@@ -7,37 +7,47 @@
 
         <div class="col-12 mt-3 left">
             <div class="row">
+                <ol class="list-group list-group-numbered">
                 {% for poll in poll_list %}
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" alt="" class="card-img-left">
-                                    {% else %}
-                                    <img src="{{ post.featured_image.url }}" alt="" class="card-img-left">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Poll created by: {{ poll.author }}</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="poll-link">
-                                    <h2 class="card-title">{{ post.title }}</h2>
-                                </a>
-                                <p class="card-text text-muted h6">{{ post.created_on }} <i class="far fa-heart"></i>{{ post.number_of_likes }}</p>
-                            </div>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <img src="{{ poll.set_icon.url }}" alt="" class="list-group-image">
+                        <div class="ms-2 me-auto">
+                            <a href="{% url 'view_poll' poll.id %}" class="fw-bold">
+                                {{ poll.set }}
+                            </a>
+                            {{ poll.lore|safe }}
                         </div>
-                        <div class="col-md-4">
+                        <span class="badge bg-success rounded-pill">Likes {{ poll.number_of_likes }}</span>
+                        <br>
+                        <span class="badge bg-danger rounded-pill">Dislikes {{ poll.number_of_dislikes }}</span>
+                    </li>
+                
+                <!-- <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="image-container">
 
+                                <img src="{{ poll.set_icon.url }}" alt="" class="card-img-left">
+                                <div class="image-flash">
+                                    <p class="author">Poll created by: {{ poll.author }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'view_poll' poll.id %}" class="poll-link">
+                                <h2 class="card-title">{{ poll.set }}</h2>
+                            </a>
+                            <p class="card-text text-muted h6">{{ poll.release_date }} <i
+                                    class="far fa-heart"></i>{{ poll.number_of_likes }}</p>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}
-            </div>
-                <div class="row">
-                {% endif %}
-                {% endfor %}
+                    <div class="col-md-4">
 
-                </div>
+                    </div>
+                </div> -->
+
+
+                {% endfor %}
+                </ol>
+            </div>
         </div>
     </div>
     {% if is_paginated %}
