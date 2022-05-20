@@ -13,20 +13,23 @@ class Poll(models.Model):
     release_date = models.DateField(null=False, blank=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name='set_likes', blank=True)
-    dislikes = models.ManyToManyField(User, related_name='set_dislikes', blank=True)
+    dislikes = models.ManyToManyField(
+        User, related_name='set_dislikes', blank=True)
 
     def __str__(self):
         return self.set
 
     def number_of_likes(self):
         return self.likes.count()
-    
+
     def number_of_dislikes(self):
         return self.dislikes.count()
 
+
 class Comment(models.Model):
-    post = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=80)
+    post = models.ForeignKey(
+        Poll, on_delete=models.CASCADE, related_name='comments')
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
