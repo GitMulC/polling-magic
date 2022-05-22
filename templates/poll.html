@@ -8,27 +8,34 @@
         <div class="col-12 mt-3 left">
             <a href="{{ request.META.HTTP_REFERER }}">Go Back</a>
             <div class="row">
-                <div class="col-md-8">
                     <div class="card-body">
                         <div class="image-container">
-
-                            <img src="{{ poll.set_icon.url }}" alt="" class="card-img-left">
-                            <div class="image-flash">
-                                <p class="author">Poll created by: {{ poll.author }}</p>
-                            </div>
+                            <img src="{{ poll.image.url }}" alt="" class="card-img-left">
                         </div>
-                        <h2 class="card-title">{{ poll.set }}</h2>
-                        <p class="card-text text-muted h6">{{ poll.release_date }} <i
-                                class="far fa-heart"></i>{{ poll.number_of_likes }}</p>
+                        <div class="row">
+                            <h2 class="card-title">{{ poll.set }}</h2>
+                            <p class="author">Poll created by: {{ poll.author }}</p>
+                            <p class="card-text text-muted h6">
+                                {{ poll.release_date }}
+                                <i class="far fa-thumbs-up"></i> {{ poll.number_of_likes }}
+                                <i class="far fa-thumbs-down"></i> {{ poll.number_of_dislikes }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    {% for comment in comments %}
-                        {{ comment.body }} by {{ comment.name }} on {{ comment.created_on|timesince }} <br>
-                    {% endfor %}
-                </div>
             </div>
+        </div>
+    </div>
+</div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3 left">
+            {% for comment in comments %}
+            <p class="comment">
+                {{ comment.body }}
+            </p>
+                by {{ comment.name }} on {{ comment.created_on|timesince }}
+            {% endfor %}
         </div>
     </div>
 </div>

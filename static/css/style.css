@@ -1,3 +1,8 @@
 .list-group-image{
     max-width: 5vw;
 }
+
+.comment {
+    margin: 1em;
+    outline: 1px solid black;
+}
