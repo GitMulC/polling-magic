@@ -17,8 +17,50 @@ Polling Magic is a website desgined to gather and display information about the 
 
 ### Typography
 
-### Wireframes
+### Lucid Chart
 
 ## Features
 
 ### Existing Features
+
+### Features left to Implement
+
+## Technologies
+
+- Python was used as primary programming language for this project. [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+- HyperTextMarkup Langugae (HTML) was another programming language used for this project. It was utilised for the main content of the website and as the standard markup language. It was also used because of its ability to be used alongside Cascading Style sheets programming language. [HTML](https://en.wikipedia.org/wiki/HTML)
+- Cascading Style Sheets (CSS) was the programming langugae used in conjunction with HTML. It was used to present the markup langugae HTML. CSS was used to put the HTML into a presentable form. [CSS](https://en.wikipedia.org/wiki/CSS)
+- Git was the technology used for version control. It is free and open sourced. [Git](https://git-scm.com/)
+- GitHub was used as a code hosting site for storing the code for this project online securely. [GitHub](https://github.com/)
+- Gitpod is a cloud based IDE which was used to write the code for this project. [Gitpod](https://www.gitpod.io/)
+- Heroku is a cloud based application. It was used for deployment of the application. [Heroku](https://www.heroku.com/home)
+- Lucidchart is a web based tool that was used to create a flowchart for this project. [Lucidchart](https://bit.ly/3rgpbku)
+
+## Testing
+
+### Code Validation
+
+### Browser Capability
+
+### Responsiveness
+
+### Tested User Stories
+
+### Unfixed Bugs
+
+### Deployment
+
+### Local Deployment
+
+## Credits
+
+### Content
+
+### Media
+
+- Image of Innistrad: Midnight Hunt set icon taken from mtg.cardsrealm.com [MTG Cards Realm](https://mtg.cardsrealm.com/en-us/sets/smid-innistrad--midnight-hunt-substitute-cards)
+- Image of Innistrad: Midnight Hunt set taken from mtg wiki [MTG Wiki](https://mtg.fandom.com/wiki/Innistrad:_Midnight_Hunt)
+- Image of Adventures in the Forgotten Realms set icon taken from mtg.cardsrealm.com [MTG Cards Realm](https://mtg.cardsrealm.com/en-us/sets/tafr-adventures-in-the-forgotten-realms-tokens)
+- Image of Adventures in the Forgotten Realms set taken from Reddit [Reddit](https://www.reddit.com/r/magicTCG/comments/nul0ek/what_are_your_predictions_and_expectations_for/)
+
+### Acknowledgments
