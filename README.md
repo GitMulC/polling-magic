@@ -17,7 +17,13 @@ Polling Magic is a website desgined to gather and display information about the 
 
 ### Typography
 
-### Lucid Chart
+### Lucid Charts
+
+- Main Page Lucid Chart
+![Lucid Chart Main Page](documents/lucid-charts/poll-magic-main-pg.pdf)
+
+- Poll Page Lucid Chart
+![Lucid Chart Poll Page](documents/lucid-charts/poll-magic-poll-pg.pdf)
 
 ## Features
 
