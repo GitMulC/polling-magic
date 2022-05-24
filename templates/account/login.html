@@ -7,20 +7,34 @@
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-6 col-md-4">
+
+      <h1>{% trans "Sign In" %}</h1>
 
 
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Welcome to Magic: The Polling.
+        <a href="{{ signup_url }}">Sign up</a> to start polling! Discuss and rate the latest Magic sets with our users!
+        {% endblocktrans %}</p>
+    </div>
+  </div>
+</div>
 
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-6 col-md-4">
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
