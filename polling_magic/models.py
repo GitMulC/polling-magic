@@ -30,10 +30,9 @@ class Comment(models.Model):
     post = models.ForeignKey(
         Poll, on_delete=models.CASCADE, related_name='comments')
     name = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(null=False, blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
-    fields = '__all__'
 
     class Meta:
         ordering = ['created_on']
