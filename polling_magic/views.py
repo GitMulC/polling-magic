@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic.edit import CreateView
 from .models import Poll, Comment
+from .forms import CommentForm
 
 
 class PollList(generic.ListView):
@@ -17,5 +19,16 @@ def view_poll(request, id):
     context = {
         'poll': poll,
         'comments': comments,
+        'comment_form': CommentForm()
+
     }
     return render(request, template, context)
+
+
+class AddCommentView(CreateView):
+    model = Comment
+    template = 'add_comment.html'
+
+
+def home(request):
+    return render(request, 'templates/index')
