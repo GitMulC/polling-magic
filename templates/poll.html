@@ -2,26 +2,28 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="container-fluid">
     <div class="row">
 
         <div class="col-12 mt-3 left">
             <a href="{{ request.META.HTTP_REFERER }}">Go Back</a>
             <div class="row">
-                    <div class="card-body">
-                        <div class="image-container">
-                            <img src="{{ poll.image.url }}" alt="" class="card-img-left">
-                        </div>
-                        <div class="row">
-                            <h2 class="card-title">{{ poll.set }}</h2>
-                            <p class="author">Poll created by: {{ poll.author }}</p>
-                            <p class="card-text text-muted h6">
-                                {{ poll.release_date }}
-                                <i class="far fa-thumbs-up"></i> {{ poll.number_of_likes }}
-                                <i class="far fa-thumbs-down"></i> {{ poll.number_of_dislikes }}
-                            </p>
-                        </div>
+                <div class="card-body">
+                    <div class="image-container">
+                        <img src="{{ poll.image.url }}" alt="" class="card-img-left">
                     </div>
+                    <div class="row">
+                        <h2 class="card-title">{{ poll.set }}</h2>
+                        <p class="author">Poll created by: {{ poll.author }}</p>
+                        <p class="card-text text-muted h6">
+                            {{ poll.release_date }}
+                            <i class="far fa-thumbs-up"></i> {{ poll.number_of_likes }}
+                            <i class="far fa-thumbs-down"></i> {{ poll.number_of_dislikes }}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,16 +31,20 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 mt-3 left">
+        <h2>
+            Comments...
+        </h2>
+        <br>
+        <a href="{% url 'add_comment' poll.id %}">Add Comment</a>
+        <div class="col-md-8 card mb-4  mt-3">
             {% for comment in comments %}
             <p class="comment">
                 {{ comment.body }}
             </p>
-                by {{ comment.name }} on {{ comment.created_on|timesince }}
+            by {{ comment.name }} on {{ comment.created_on|timesince }}
             {% endfor %}
         </div>
     </div>
-</div>
 
 
-{%endblock%}
+{% endblock %}
