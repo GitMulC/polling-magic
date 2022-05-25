@@ -1,3 +1,4 @@
+<!-- Attempt at creating alternate way of commenting!!!!!! -->
 {% extends "base.html" %}
 
 {% block content %}
@@ -6,7 +7,7 @@
 <br>
 <div class="form-group">
     <form method="POST">
-        {{ comment_form | crispy }}
+        {{ add_comment | crispy }}
         {% csrf_token %}
     </form>
 </div>
