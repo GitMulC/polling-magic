@@ -18,7 +18,25 @@
                         <h2 class="card-title">{{ poll.set }}</h2>
                         <p class="author">Poll created by: {{ poll.author }}</p>
                         <p class="card-text text-muted h6">
+                            Set Released:
                             {{ poll.release_date }}
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form action="{% url 'poll_like' poll.id %}" class="d-inline" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+
+                                    <strong class="text-secondary"><i class="fas fa-thumbs-up"></i> {{ poll.number_of_likes }} </strong>
+
+                                    {% else %}
+
+                                    {% endif %}
+                                </form>
+                                {% else %}
+
+                                {% endif %}
+
+                            </strong>
                             <i class="far fa-thumbs-up"></i> {{ poll.number_of_likes }}
                             <i class="far fa-thumbs-down"></i> {{ poll.number_of_dislikes }}
                         </p>

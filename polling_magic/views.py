@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 # from django.views.generic.edit import CreateView
 from .models import Poll, Comment
 from .forms import CommentForm
@@ -59,3 +60,14 @@ def view_poll(request, id):
 
 def home(request):
     return render(request, 'templates/index')
+
+class PollLike(View):
+    def post(self, request, slug):
+        poll = get_object_or_404(Poll, slug=slug)
+
+        if poll.likes.filter(id-request.user.id).exists():
+            poll.likes.remove(request.user)
+        else:
+            poll.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('view_poll'))
