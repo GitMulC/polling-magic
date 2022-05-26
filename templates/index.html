@@ -17,22 +17,11 @@
                             </a>
                             {{ poll.lore|safe }}
                         </div>
-                        <span class="badge bg-success rounded-pill">Likes {{ poll.number_of_likes }} <i class="far fa-thumbs-up"></i></span>
-                        <span class="badge bg-danger rounded-pill">Dislikes {{ poll.number_of_dislikes }} <i class="far fa-thumbs-down"></i></span>
+                        <span class="badge bg-success rounded-pill">Likes {{ poll.number_of_likes }} <i
+                                class="far fa-thumbs-up"></i></span>
+                        <span class="badge bg-danger rounded-pill">Dislikes {{ poll.number_of_dislikes }} <i
+                                class="far fa-thumbs-down"></i></span>
                     </li>
-
-                    <!-- <div class="row">
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="image-container">
-
-                                <img src="{{ poll.set_icon.url }}" alt="" class="card-img-left">
-                                <div class="image-flash">
-                                    <p class="author">Poll created by: {{ poll.author }}</p>
-                                </div>
-                            </div>
-                </div> -->
-
 
                     {% endfor %}
                 </ol>
