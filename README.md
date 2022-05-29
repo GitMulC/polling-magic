@@ -13,6 +13,8 @@ Polling Magic is a website desgined to gather and display information about the 
 
 ## UX
 
+Polling Magic was created as a space for the Magic community to have a resonable discourse about Magic: The Gathering sets. Its secondary function is to illustrate to the marketing, creative and all other relavant departments at Magic: The Gathering how thier products and services are being received by their target audience. In the future, sourcing consumer satisfication could be made a whole lot easier and streamlined thanks to sites such as this.
+
 ### Colour Scheme
 
 The `#ff8800` orange colour was utilised as it is similar to the colour of the orginal Magic: The Gathering logo font. This original logo served as inspiration for the colour scheme. This colour was used in headings, menu bar, footer and in the logo.
@@ -41,10 +43,42 @@ Rubik was the other font used throughout the site, in the main body of each sect
 
 ### Existing Features
 
+- __Polls__
+
+- Polls are the primary feature of this site. Their purpose is to portray to the user the popularity of any given Magic: The Gathering set.
+- They are showen in list form to the user, and illustrate the amount of likes, comments, lore and release date of any given set on the site.
+
+- __Likes/Dislikes__
+
+- Likes are showen on each poll to show how popular sets are amoungst the users of the site.
+- Dislikes are showen on each poll to show how unpopular sets are amoungst the users of the site.
+
+- __Comments__
+
+- Each poll features its own comments section. Approved comments are published below each poll and allow a dialogue between users. 
+- It allows users to say how they felt about a particular set.
+- Conversely it allows user to voice their concern or displeasure at a particular set.
+- The comments feature allows the Magic: The Gathering community to deliberate on any given set and give Magics parent company (Wizards of the Coast) an opportunity to see how their latest set is going down with consumers. 
+
+- __Navbar__
+
+- Allows the user to navigate the site.
+- Features a registration button to allow new users to join the site.
+- A login button, so that memebers can sign in.
+- A logout button to allow the user to logout from their account. 
+
 ### Features left to Implement
+
+- Allow any user to upload a new set poll, not just an administrator. 
+- Include more Magic: The Gathering products in polls thast aren't polls such as secret lair drops and Magic video game releases.
+- Add more lore friendly liking and disliking buttons. Also to add in total number of views to each post.
+- Better visualisation of the new cards in the set, rather than just noting how many new cards are out with each set.
+- Remove the need for approval on every comment and in the future possibly leave it up to moderaters of the site to approve comments rather than one administrator.
+
 
 ## Technologies
 
+- Django was used as the web framework for this project. [Django](https://www.djangoproject.com/)
 - Python was used as primary programming language for this project. [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - HyperTextMarkup Langugae (HTML) was another programming language used for this project. It was utilised for the main content of the website and as the standard markup language. It was also used because of its ability to be used alongside Cascading Style sheets programming language. [HTML](https://en.wikipedia.org/wiki/HTML)
 - Cascading Style Sheets (CSS) was the programming langugae used in conjunction with HTML. It was used to present the markup langugae HTML. CSS was used to put the HTML into a presentable form. [CSS](https://en.wikipedia.org/wiki/CSS)
@@ -64,6 +98,13 @@ Rubik was the other font used throughout the site, in the main body of each sect
 
 ### Tested User Stories
 
+- As a site user I can view the current opinions of other users on the latest Magic set posts so that I can select and view one.
+- As a user I can register an account so that I can comment and like/dislike set posts.
+- As a user I can see the like/dislike ratio of each set post on the site.
+- As a user I can register a unique account so I can comment and like on each set.
+- As a user I can like or dislike a set post so that I can contribute to the opinion of the fan base on the site.
+- As a user I can leave comments on a post so that I can be involved in the conversation.
+
 ### Unfixed Bugs
 
 ### Deployment
@@ -73,6 +114,11 @@ Rubik was the other font used throughout the site, in the main body of each sect
 ## Credits
 
 ### Content
+
+- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- Coolors.co was used to generate a color palette for the site. [Coolors](https://coolors.co/)
+- Responsive images were generated on the site Am I Responsive?. [Am I Responsive?](http://ami.responsivedesign.is/)
+- Screenshots and images edited using graphic editor Microsoft Paint. [Mircosoft Paint](https://support.microsoft.com/en-us/windows/open-microsoft-paint-ead1dc5c-abc4-fd2c-d81e-ebb013fbc113)
 
 ### Media
 
