@@ -6,7 +6,6 @@ Polling Magic is a website desgined to gather and display information about the 
 
 - As a site user I can view the current opinions of other users on the latest Magic set posts so that I can select and view one.
 - As a user I can register an account so that I can comment and like/dislike set posts.
-- As a user I can see the like/dislike ratio of each set post on the site.
 - As a user I can register a unique account so I can comment and like on each set.
 - As a user I can like or dislike a set post so that I can contribute to the opinion of the fan base on the site.
 - As a user I can leave comments on a post so that I can be involved in the conversation.
@@ -86,6 +85,7 @@ Rubik was the other font used throughout the site, in the main body of each sect
 - Gitpod is a cloud based IDE which was used to write the code for this project. [Gitpod](https://www.gitpod.io/)
 - Heroku is a cloud based application. It was used for deployment of the application. [Heroku](https://www.heroku.com/home)
 - Lucidchart is a web based tool that was used to create a flowchart for this project. [Lucidchart](https://bit.ly/3rgpbku)
+- Postgres is a cloud based database management system that uses SQL. [Postgres](https://www.postgresql.org/)
 
 ## Testing
 
@@ -108,31 +108,68 @@ Python code was validated using PEP8 validator [PEP8](http://pep8online.com/).
 
 ### Tested User Stories
 
-- As a site user I can view the current opinions of other users on the latest Magic set posts so that I can select and view one.
+- As a site user I can view the current opinions of other users on the latest Magic set posts so that I can select and view one. 
+    - ![Landing Page]()
 - As a user I can register an account so that I can comment and like/dislike set posts.
-- As a user I can see the like/dislike ratio of each set post on the site.
-- As a user I can register a unique account so I can comment and like on each set.
+    - ![Poll]()
 - As a user I can like or dislike a set post so that I can contribute to the opinion of the fan base on the site.
+    - ![Likes/Dislikes]()
+- As a user I can register a unique account so I can comment and like on each set.
+    - ![Sign In]()
 - As a user I can leave comments on a post so that I can be involved in the conversation.
+    -![Comment Submission]()
 
 ### Unfixed Bugs
 
 ### Deployment
 
-- explain how someone can deploy to Heroku (sign-up, create app with custom name, add config vars/which ones?, add Resources for Postgres DATABASE_URL, etc.)
-- explain how someone can get their own Cloudinary API keys (sign-up, where to get the KEY, and how to add to env.py and/or Heroku config vars)
-- explain that they need a [Procfile](Procfile)
-- explain that they need to install and/or freeze the [requirements.txt](requirements.txt)
-    - `pip3 install -r requirements.txt` (install from your [requirements.txt](requirements.txt))
-    - `pip3 freeze --local > requirements.txt` (freeze from their own workspace)
-- to create an `env.py` file and which KEYs to include:
-    - `DATABASE_URL`, `SECRET_KEY`, `CLOUDINARY_URL`
+- First step was to sign up to the Heroku online application using an email. Then authenticate and create your account on Heroku.
+
+- ![Heroku Sign Up](documents/heroku-screenshots/heroku-signup.png)
+
+- Then I went to my Heroku account dashboard and clicked new, then create new app.
+
+- ![Heroku Dashboard](documents/heroku-screenshots/heroku-dashboard.png)
+
+- ![Heroku Create New App](documents/heroku-screenshots/heroku-create-new-app.png)
+
+- Next I gave my application a unique name polling-magic-community. Then I selected Europe for region.
+
+- ![Heroku App Creation](documents/heroku-screenshots/heroku-app-creation.png)
+
+- I installed the add on Postgres to be used as the cloud based database for this project.
+
+- ![Heroku Addons](documents/heroku-screenshots/postgres-addon.PNG)
+
+- After the app is created I selected the settings tab. In here I clicked on the Reveal Config Vars button. I first obtained the API key from Cloudinary (the image hosting site used in this project) site. Then input it into the config vars.
+
+- ![Cloudinary API](documents/heroku-screenshots/cloudniary-api.PNG)
+
+- A env.py was created were the keys for `DATABASE_URL`, `SECRET_KEY` and `CLOUDINARY_URL` would be held.
+
+- I then added a secret key into the env.py file as well as the url from the linked postgres database. 
+
+- ![Secret Key Databse Url](documents/heroku-screenshots/secret-key-database-url.PNG)
+
+- ![Heroku Tabs](documents/heroku-screenshots/heroku-tabs.png)
+
+- ![Heroku Config Vars & Buildpacks](documents/heroku-screenshots/heroku-settings-tab.PNG)
+
+- I then clicked on the Deploy tab. Here I selected GitHub as the deployment method. I then connected to my polling-magic repository on GitHub by typing it in and selecting it.
+
+- Finally ensured that automatic deploys were from the main branch. I clicked on enable automatic deploys and built the app.
+
+- ![Heroku Deploy Tab](documents/heroku-screenshots/heroku-deploy-tab.PNG)
+
+- A Procfile was created into my local workspace in Gitpod. The Procfile is used for declaring what commands are run by your application’s dynos on the Heroku platform.
+
+- After all relevant apps were installed, the requirements.txt file was created using the command `pip3 install -r requirements.txt`. Additionally all apps were listed/frozen onto this txt file using the command `pip3 freeze --local > requirements.txt`.
 
 
 ### Local Deployment
 
-- Procfile, env.py file explain, requirements.txt. 
-- python3 manage.py makemigrations, migrations, createsuperuser.
+- All changes to the models.py file wer efollowed by the command `python3 manage.py makemigrations` & `python3 manage.py migrate`to commit and push the changes to my local workspace.
+- A super user was created using the command `python3 manage.py create superuser`. This was used to sign into the sites admin page.
 
 ## Credits
 
@@ -151,3 +188,5 @@ Python code was validated using PEP8 validator [PEP8](http://pep8online.com/).
 - Image of Adventures in the Forgotten Realms set taken from Reddit [Reddit](https://www.reddit.com/r/magicTCG/comments/nul0ek/what_are_your_predictions_and_expectations_for/)
 
 ### Acknowledgments
+
+- I want to thank Code Institute and in particular my mentor Tim for his assitance throughout this projects' development.
