@@ -123,8 +123,8 @@
     <div class="row">
         <!-- adding a new comment -->
         {% if user.is_authenticated %}
-            <div class="col-md-4 card mb-4 mt-3">
-                <div class="card-body">
+            <div class="col-12 mb-4 mt-3">
+                <div class="row">
                     <!-- For later -->
                     {% if commented %}
                         <div class="alert alert-success" role="alert">
@@ -136,7 +136,7 @@
                         <form method="post" style="margin-top: 1.3em;">
                             {{ comment_form | crispy }}
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     {% endif %}
                 </div>

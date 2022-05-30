@@ -55,7 +55,7 @@ Rubik was the other font used throughout the site, in the main body of each sect
 
 - __Comments__
 
-- Each poll features its own comments section. Approved comments are published below each poll and allow a dialogue between users. 
+- Each poll features its own comments section. Any user may comment on any poll.
 - It allows users to say how they felt about a particular set.
 - Conversely it allows user to voice their concern or displeasure at a particular set.
 - The comments feature allows the Magic: The Gathering community to deliberate on any given set and give Magics parent company (Wizards of the Coast) an opportunity to see how their latest set is going down with consumers. 
@@ -72,8 +72,7 @@ Rubik was the other font used throughout the site, in the main body of each sect
 - Allow any user to upload a new set poll, not just an administrator. 
 - Include more Magic: The Gathering products in polls thast aren't polls such as secret lair drops and Magic video game releases.
 - Add more lore friendly liking and disliking buttons. Also to add in total number of views to each post.
-- Better visualisation of the new cards in the set, rather than just noting how many new cards are out with each set.
-- Remove the need for approval on every comment and in the future possibly leave it up to moderaters of the site to approve comments rather than one administrator.
+- Better visualisation of the new cards in the set, also things like new mechanics should bew noted in each poll.
 
 
 ## Technologies
