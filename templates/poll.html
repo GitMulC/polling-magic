@@ -20,25 +20,29 @@
                         <p class="card-text text-muted h6">
                             Set Released:
                             {{ poll.release_date }}
-                            <strong>
-                                {% if user.is_authenticated %}
-                                <form action="{% url 'poll_like' poll.id %}" class="d-inline" method="POST">
-                                    {% csrf_token %}
-                                    {% if liked %}
-
-                                    <strong class="text-secondary"><i class="fas fa-thumbs-up"></i> {{ poll.number_of_likes }} </strong>
-
+                            {% if user.is_authenticated %}
+                                <br>
+                                <!-- add 'like' -->
+                                <a href="{% url 'poll_like' poll.id %}" class="mx-1 fw-bold text-secondary text-decoration-none">
+                                    {% if request.user in poll.likes.all %}
+                                        <i class="fas fa-thumbs-up"></i>
                                     {% else %}
-
+                                        <i class="far fa-thumbs-up"></i>
                                     {% endif %}
-                                </form>
-                                {% else %}
+                                </a>
+                                {{ poll.number_of_likes }}
 
-                                {% endif %}
+                                <!-- add 'dislike' -->
+                                <a href="{% url 'poll_dislike' poll.id %}" class="mx-1 fw-bold text-secondary text-decoration-none">
+                                    {% if request.user in poll.dislikes.all %}
+                                        <i class="fas fa-thumbs-down"></i>
+                                    {% else %}
+                                        <i class="far fa-thumbs-down"></i>
+                                    {% endif %}
+                                </a>
+                                {{ poll.number_of_dislikes }}
 
-                            </strong>
-                            <i class="far fa-thumbs-up"></i> {{ poll.number_of_likes }}
-                            <i class="far fa-thumbs-down"></i> {{ poll.number_of_dislikes }}
+                            {% endif %}
                         </p>
                     </div>
                 </div>
@@ -49,35 +53,95 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3">
-            {% for comment in comments %}
-            <p class="comment">
-                {{ comment.body }}
-            </p>
-            by {{ comment.name }} on {{ comment.created_on|timesince }}
-            {% endfor %}
-            <div class="col-md-4 card mb-4  mt-3 ">
+        <div class="col-12">
+            <ul class="list-group list-group-flush">
+                <!-- existing comments -->
+                {% for comment in comments %}
+                    <li class="list-group-item">
+                        {{ comment.body }}
+                        <br>
+                        by {{ comment.name }} on {{ comment.created_on|timesince }}
+                        <!-- edit/delete buttons only for user's own comments -->
+                        {% if request.user.is_authenticated and comment.name|lower == request.user|lower %}
+
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalEdit-{{ comment.id }}">Edit</a> |
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalDelete-{{ comment.id }}">Delete</a>
+
+                            <!-- EDIT modal -->
+                            <div class="modal fade" id="modalEdit-{{ comment.id }}" tabindex="-1" aria-labelledby="modalEdit-{{ comment.id }}-Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <!-- edit comment form -->
+                                    <form class="modal-content" method="POST" action="{% url 'edit_comment' poll.id comment.id %}">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalEdit-{{ comment.id }}-Label">Edit Comment</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% csrf_token %}
+                                            <textarea name="body" cols="30" rows="10">{{ comment.body }}</textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- DELETE modal -->
+                            <div class="modal fade" id="modalDelete-{{ comment.id }}" tabindex="-1" aria-labelledby="modalDelete-{{ comment.id }}-Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <!-- delete comment form -->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-danger" id="modalDelete-{{ comment.id }}-Label">Delete Comment?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this comment?
+                                            <br><br>
+                                            {{ comment.body }}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <a href="{% url 'delete_comment' poll.id comment.id %}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-danger">
+                        No Comments Yet!
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- adding a new comment -->
+        {% if user.is_authenticated %}
+            <div class="col-md-4 card mb-4 mt-3">
                 <div class="card-body">
                     <!-- For later -->
                     {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is awaiting approval
-                    </div>
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting approval
+                        </div>
                     {% else %}
-                    {% if user.is_authenticated %}
-    
-                    <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                    </form>
-                    {% endif %}
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" style="margin-top: 1.3em;">
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        </form>
                     {% endif %}
                 </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 
 
