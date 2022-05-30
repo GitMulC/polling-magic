@@ -4,7 +4,9 @@ body {
     font-family: Rubik, sans-serif;
     font-weight: 300;
     color: #ffffff;
-    background-image: url(media/magic-bg.png);
+    background-image: url(../img/magic-bg.png);
+    height: 100vh;
+    width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: black;
