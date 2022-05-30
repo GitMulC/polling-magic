@@ -34,10 +34,10 @@ Rubik was the other font used throughout the site, in the main body of each sect
 ### Lucid Charts
 
 - Main Page Lucid Chart
-![Lucid Chart Main Page](documents/lucid-charts/poll-magic-main-pg.pdf)
+![Lucid Chart Main Page](documents/lucid-charts/poll_magic.png)
 
 - Poll Page Lucid Chart
-![Lucid Chart Poll Page](documents/lucid-charts/poll-magic-poll-pg.pdf)
+![Lucid Chart Poll Page](documents/lucid-charts/post_magic.png)
 
 ## Features
 
@@ -109,7 +109,20 @@ Rubik was the other font used throughout the site, in the main body of each sect
 
 ### Deployment
 
+- explain how someone can deploy to Heroku (sign-up, create app with custom name, add config vars/which ones?, add Resources for Postgres DATABASE_URL, etc.)
+- explain how someone can get their own Cloudinary API keys (sign-up, where to get the KEY, and how to add to env.py and/or Heroku config vars)
+- explain that they need a [Procfile](Procfile)
+- explain that they need to install and/or freeze the [requirements.txt](requirements.txt)
+    - `pip3 install -r requirements.txt` (install from your [requirements.txt](requirements.txt))
+    - `pip3 freeze --local > requirements.txt` (freeze from their own workspace)
+- to create an `env.py` file and which KEYs to include:
+    - `DATABASE_URL`, `SECRET_KEY`, `CLOUDINARY_URL`
+
+
 ### Local Deployment
+
+- Procfile, env.py file explain, requirements.txt. 
+- python3 manage.py makemigrations, migrations, createsuperuser.
 
 ## Credits
 
