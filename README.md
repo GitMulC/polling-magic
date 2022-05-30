@@ -106,20 +106,31 @@ Python code was validated using PEP8 validator [PEP8](http://pep8online.com/).
 
 ### Responsiveness
 
+- The responsiveness of this site was tested on 3 different devices desktop, tablet and mobile.
+    - ![Am I Responsive](documents/responsiveness/am-i-responsive.PNG)
+- Responsiveness on Desktop:
+  - ![Desktop Responsiveness](documents/responsiveness/landing-page-desktop-chrome.PNG)
+- Responsiveness on Tablet:
+  - ![Tablet Responsiveness](documents/responsiveness/sign-in-laptop-safari.png)
+- Responsiveness on Mobile:
+  - ![Mobile Responsiveness](documents/responsiveness/comments-mobile-firefox.png)
+
 ### Tested User Stories
 
 - As a site user I can view the current opinions of other users on the latest Magic set posts so that I can select and view one. 
-    - ![Landing Page]()
+    - ![Landing Page](documents/responsiveness/landing-page-desktop-chrome.PNG)
 - As a user I can register an account so that I can comment and like/dislike set posts.
-    - ![Poll]()
+    - ![Poll](documents/responsiveness/poll-desktop.PNG)
 - As a user I can like or dislike a set post so that I can contribute to the opinion of the fan base on the site.
-    - ![Likes/Dislikes]()
+    - ![Likes/Dislikes](documents/responsiveness/likes-dislikes.PNG)
 - As a user I can register a unique account so I can comment and like on each set.
-    - ![Sign In]()
+    - ![Sign In](documents/responsiveness/sign-in-laptop-safari.png)
 - As a user I can leave comments on a post so that I can be involved in the conversation.
-    -![Comment Submission]()
+    -![Comment Submission](documents/responsiveness/comments-mobile-firefox.png)
 
 ### Unfixed Bugs
+
+- Was unable to get the background image on css to load into deployed heroku app even after `DEBUG` in settings.py was set to `False`.
 
 ### Deployment
 
