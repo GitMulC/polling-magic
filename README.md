@@ -91,6 +91,17 @@ Rubik was the other font used throughout the site, in the main body of each sect
 
 ### Code Validation
 
+Python code was validated using PEP8 validator [PEP8](http://pep8online.com/).
+
+- Python
+    - models.py Validation: No errors were returned when passing through the official validator ![PEP8](documents/testing/models.py-test.PNG)
+    - settings.py Validation: No errors were returned when passing through the official validator ![PEP8](documents/testing/settings.py-test.PNG)
+    - urls.py Validation: No errors were returned when passing through the official validator ![PEP8](documents/testing/urls.py-test.PNG)
+    - views.py Validation: No errors were returned when passing through the official validator ![PEP8](documents/testing/views.py-test.PNG)
+
+- CSS 
+    - No errors were found when passing through the official ![(Jigsaw) validator](documents/testing/css-test.PNG)
+
 ### Browser Capability
 
 ### Responsiveness
