@@ -182,6 +182,12 @@ Python code was validated using PEP8 validator [PEP8](http://pep8online.com/).
 - All changes to the models.py file wer efollowed by the command `python3 manage.py makemigrations` & `python3 manage.py migrate`to commit and push the changes to my local workspace.
 - A super user was created using the command `python3 manage.py create superuser`. This was used to sign into the sites admin page.
 
+- To make a local copy of this project, you can clone it by typing the following in your IDE terminal:
+
+    - `git clone https://github.com/GitMulC/polling-magic`
+
+Alternatively, if using Gitpod, you can click the green Gitpod button, or use [this link](https://gitpod.io/#https://github.com/GitMulC/polling-magic) 
+
 ## Credits
 
 ### Content
